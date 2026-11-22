@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Blog Writer | SEO Blog Dashboard</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+
+
+<body>
+
+<main class="page-container">
+
+    <!-- PAGE HEADER -->
+
+    <div class="page-header">
+
+        <div>
+
+            <h1>
+                Blog Writer
+            </h1>
+
+            <p>
+                Write, edit and prepare your SEO blog content.
+            </p>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="secondary-btn"
+            onclick="window.location.href='blogs.html'">
+
+            ← Back to Blog Management
+
+        </button>
+
+    </div>
+
+
+    <!-- WRITER CARD -->
+
+    <div class="writer-card">
+
+        <form id="writerForm">
+
+
+            <!-- BLOG INFORMATION -->
+
+            <div class="writer-section">
+
+                <h2>
+                    Blog Information
+                </h2>
+
+                <p>
+                    Add the basic SEO information for your article.
+                </p>
+
+            </div>
+
+
+            <div class="form-grid">
+
+                <div class="form-group full-width">
+
+                    <label for="writerTitle">
+                        Blog Title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="writerTitle"
+                        placeholder="Enter your blog title"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="writerKeyword">
+                        Primary SEO Keyword
+                    </label>
+
+                    <input
+                        type="text"
+                        id="writerKeyword"
+                        placeholder="Enter primary keyword"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="writerCategory">
+                        Category
+                    </label>
+
+                    <select
+                        id="writerCategory"
+                        required>
+
+                        <option value="">
+                            Select Category
+                        </option>
+
+                        <option value="SEO">
+                            SEO
+                        </option>
+
+                        <option value="Content Marketing">
+                            Content Marketing
+                        </option>
+
+                        <option value="Technical SEO">
+                            Technical SEO
+                        </option>
+
+                        <option value="Digital Marketing">
+                            Digital Marketing
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="writerName">
+                        Writer
+                    </label>
+
+                    <input
+                        type="text"
+                        id="writerName"
+                        placeholder="Enter writer name"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="writerPublishDate">
+                        Publishing Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="writerPublishDate"
+                        required>
+
+                </div>
+
+            </div>
+
+
+            <!-- BLOG CONTENT -->
+
+            <div class="writer-section content-section">
+
+                <h2>
+                    Blog Content
+                </h2>
+
+                <p>
+                    Write the complete article content below.
+                </p>
+
+
+                <!-- TOOLBAR -->
+
+                <div class="editor-toolbar">
+
+                    <button
+                        type="button"
+                        onclick="formatText('bold')"
+                        title="Bold">
+
+                        <strong>B</strong>
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        onclick="formatText('italic')"
+                        title="Italic">
+
+                        <em>I</em>
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        onclick="formatText('underline')"
+                        title="Underline">
+
+                        <u>U</u>
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        onclick="formatText('strikeThrough')"
+                        title="Strikethrough">
+
+                        <s>S</s>
+
+                    </button>
+
+
+                    <span class="toolbar-divider"></span>
+
+
+                    <button
+                        type="button"
+                        onclick="formatText('formatBlock', 'h2')"
+                        title="Heading">
+
+                        H
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        onclick="formatText('formatBlock', 'p')"
+                        title="Paragraph">
+
+                        P
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        onclick="formatText('insertUnorderedList')"
+                        title="Bullet List">
+
+                        • List
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        onclick="formatText('insertOrderedList')"
+                        title="Numbered List">
+
+                        1. List
+
+                    </button>
+
+                </div>
+
+
+                <!-- REAL RICH TEXT EDITOR -->
+
+                <div
+                    id="blogContent"
+                    class="blog-content-editor"
+                    contenteditable="true"
+                    data-placeholder="Start writing your blog content here...">
+                </div>
+
+
+                <!-- EDITOR FOOTER -->
+
+                <div class="editor-footer">
+
+                    <span>
+                        Words:
+                        <strong id="contentWordCount">
+                            0
+                        </strong>
+                    </span>
+
+
+                    <span>
+                        Characters:
+                        <strong id="contentCharacterCount">
+                            0
+                        </strong>
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- STATUS -->
+
+            <div class="form-group writer-status">
+
+                <label for="writerStatus">
+                    Blog Status
+                </label>
+
+                <select id="writerStatus">
+
+                    <option value="Idea">
+                        Idea
+                    </option>
+
+                    <option
+                        value="In Progress"
+                        selected>
+
+                        In Progress
+
+                    </option>
+
+                    <option value="Under Review">
+                        Under Review
+                    </option>
+
+                    <option value="Scheduled">
+                        Scheduled
+                    </option>
+
+                    <option value="Published">
+                        Published
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- ACTIONS -->
+
+            <div class="writer-actions">
+
+                <button
+                    type="button"
+                    id="saveDraftBtn"
+                    class="secondary-btn">
+
+                    Save Draft
+
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="primary-btn">
+
+                    Save Blog
+
+                </button>
+
+            </div>
+
+
+        </form>
+
+    </div>
+
+</main>
+
+
+<script src="js/storage.js"></script>
+
+<script src="js/app.js"></script>
+
+<script src="js/writer.js"></script>
+
+</body>
+
+</html>

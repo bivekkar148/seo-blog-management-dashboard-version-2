@@ -1,0 +1,350 @@
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1024px) {
+
+    #dashboard,
+    #blogs,
+    #calendar {
+        width: 94%;
+    }
+
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .status-content {
+        grid-template-columns: 1fr;
+    }
+
+    .status-chart {
+        height: 300px;
+    }
+
+    /* Blog table */
+
+    .blog-table-container {
+        overflow-x: auto;
+        width: 100%;
+    }
+
+    #blogTable {
+        min-width: 850px;
+    }
+
+    /* Calendar */
+
+    .calendar-container {
+        overflow-x: auto;
+        width: 100%;
+    }
+
+    .calendar-weekdays,
+    .calendar-days,
+    #calendarDays {
+        min-width: 700px;
+    }
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 768px) {
+
+    #dashboard,
+    #blogs,
+    #calendar {
+        width: 95%;
+        padding: 24px;
+    }
+
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+
+    .status-content {
+        grid-template-columns: 1fr;
+    }
+
+    .blog-controls {
+        flex-wrap: wrap;
+    }
+
+    .blog-table-container {
+        overflow-x: auto;
+    }
+
+    #blogTable {
+        min-width: 850px;
+    }
+
+    .calendar-container {
+        overflow-x: auto;
+    }
+
+    .calendar-weekdays,
+    .calendar-days,
+    #calendarDays {
+        min-width: 700px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    /* Main sections */
+
+    #dashboard,
+    #blogs,
+    #calendar {
+        width: 95%;
+        padding: 18px;
+    }
+
+
+    /* Dashboard heading */
+
+    #dashboard h1,
+    #blogs h1 {
+        font-size: 21px;
+    }
+
+    #dashboard > p,
+    #blogs > p {
+        font-size: 12px;
+    }
+
+
+    /* Statistics */
+
+    .stats-container {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .stat-card {
+        padding: 17px;
+    }
+
+    .stat-card p {
+        font-size: 25px;
+    }
+
+
+    /* Recent Blogs */
+
+    .recent-blogs {
+        padding: 18px;
+    }
+
+    .recent-blogs h2 {
+        font-size: 16px;
+    }
+
+
+    /* Status Overview */
+
+    .status-overview {
+        padding: 18px;
+    }
+
+    .status-overview h2 {
+        font-size: 16px;
+    }
+
+    .status-content {
+        display: block;
+    }
+
+    .status-chart {
+        width: 100%;
+        height: 230px;
+        margin-bottom: 15px;
+    }
+
+    .status-list {
+        width: 100%;
+    }
+
+    .status-item {
+        padding: 10px 12px;
+    }
+
+
+    /* Add Blog */
+
+    #addBlogBtn {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+
+    /* Blog form */
+
+    .blog-form-container {
+        padding: 17px;
+    }
+
+    .form-group input,
+    .form-group select {
+        width: 100%;
+    }
+
+
+    /* Search and filter */
+
+    .blog-controls {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .blog-controls input,
+    .blog-controls select {
+        width: 100%;
+        min-width: 0;
+    }
+
+
+    /* Blog table */
+
+    .blog-table-container {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    #blogTable {
+        min-width: 850px;
+    }
+
+    #blogTable th,
+    #blogTable td {
+        padding: 10px;
+        font-size: 11px;
+    }
+
+
+    /* =====================================
+       CALENDAR MOBILE FIX
+    ===================================== */
+
+    #calendar {
+        overflow: hidden;
+    }
+
+    .calendar-container {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .calendar-header {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .calendar-header h2 {
+        font-size: 18px;
+    }
+
+    .calendar-header button {
+        padding: 8px 12px;
+        font-size: 11px;
+    }
+
+    /* IMPORTANT:
+       Your actual calendar uses #calendarDays */
+
+    #calendarDays {
+        min-width: 700px;
+    }
+
+    .calendar-weekdays {
+        min-width: 700px;
+    }
+
+    .calendar-days {
+        min-width: 700px;
+    }
+
+    .calendar-day {
+        min-height: 90px;
+        padding: 7px;
+    }
+
+    .calendar-weekdays div {
+        padding: 8px 4px;
+        font-size: 11px;
+    }
+
+    .day-number {
+        font-size: 11px;
+    }
+
+    .calendar-blog {
+        font-size: 9px;
+        padding: 5px;
+    }
+}
+
+
+/* =========================================
+   VERY SMALL MOBILE
+========================================= */
+
+@media (max-width: 400px) {
+
+    #dashboard,
+    #blogs,
+    #calendar {
+        width: 96%;
+        padding: 14px;
+    }
+
+    #dashboard h1,
+    #blogs h1 {
+        font-size: 19px;
+    }
+
+    .stat-card {
+        padding: 15px;
+    }
+
+    .stat-card p {
+        font-size: 23px;
+    }
+
+    .status-chart {
+        height: 220px;
+    }
+
+    .calendar-header {
+        align-items: center;
+    }
+
+    .calendar-header button {
+        padding: 7px 10px;
+    }
+
+    #calendarDays {
+        min-width: 700px;
+    }
+
+    .calendar-weekdays {
+        min-width: 700px;
+    }
+}

@@ -1,0 +1,231 @@
+/* =========================================================
+   PUBLISHING CALENDAR — VISUAL LAYER
+========================================================= */
+
+#calendar {
+    width: 100%;
+    margin-top: 8px;
+}
+
+#calendar-header {
+    display: grid;
+    grid-template-columns: 130px 1fr 130px;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 18px;
+}
+
+#calendar-header h2 {
+    margin: 0;
+    text-align: center;
+    color: #182235;
+    font-size: 23px;
+    letter-spacing: -0.4px;
+}
+
+#calendar-header button {
+    min-width: 0;
+}
+
+#calendarDays {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    width: 100%;
+    border: 1px solid #e2e7f0;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 8px 28px rgba(31, 42, 68, 0.06);
+}
+
+.calendar-day-name {
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f6fa;
+    color: #66738a;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    border-right: 1px solid #e5e9f1;
+    border-bottom: 1px solid #e2e7f0;
+}
+
+.calendar-day-name:nth-child(7n) {
+    border-right: none;
+}
+
+.calendar-day {
+    min-height: 124px;
+    padding: 10px;
+    background: #fff;
+    border-right: 1px solid #e7ebf2;
+    border-bottom: 1px solid #e7ebf2;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.15s ease;
+}
+
+.calendar-day:nth-child(7n) {
+    border-right: none;
+}
+
+.calendar-day:not(.empty):hover {
+    background: #fcfbff;
+}
+
+.calendar-day.empty {
+    background: #f9fafc;
+}
+
+.calendar-date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    margin-bottom: 6px;
+    color: #56637a;
+    font-size: 12px;
+    font-weight: 800;
+    border-radius: 50%;
+}
+
+.calendar-day.today {
+    background: #faf8ff;
+}
+
+.calendar-day.today .calendar-date {
+    color: #fff;
+    background: #6d4aff;
+    box-shadow: 0 5px 12px rgba(109, 74, 255, 0.25);
+}
+
+.blog-event {
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+    padding: 7px 8px;
+    border: 1px solid rgba(109, 74, 255, 0.12);
+    border-radius: 7px;
+    background: #f0edff;
+    color: #543bd2;
+    font-size: 10px;
+    font-weight: 800;
+    line-height: 1.35;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: 0.15s ease;
+}
+
+.blog-event:hover {
+    background: #e6e0ff;
+    transform: translateY(-1px);
+}
+
+/* Give event cards a little visual variety by status. */
+.blog-event.status-published {
+    background: #e8f8f6;
+    color: #087f79;
+    border-color: #c9ece8;
+}
+
+.blog-event.status-scheduled {
+    background: #edf4ff;
+    color: #2861b5;
+    border-color: #d5e4fb;
+}
+
+.blog-event.status-in-progress {
+    background: #fff6df;
+    color: #9a6509;
+    border-color: #f4e4b9;
+}
+
+.blog-event.status-under-review {
+    background: #f4efff;
+    color: #6843c7;
+    border-color: #e5dafa;
+}
+
+.blog-event.status-idea {
+    background: #fff0f3;
+    color: #b8475e;
+    border-color: #f5d5dc;
+}
+
+#upcomingBlogs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#upcomingBlogs .recent-blog-item {
+    position: relative;
+    padding: 16px 18px;
+    border: 1px solid #e6eaf2;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 5px 18px rgba(31, 42, 68, 0.04);
+}
+
+#upcomingBlogs .recent-blog-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 12px;
+    bottom: 12px;
+    width: 3px;
+    border-radius: 3px;
+    background: #6d4aff;
+}
+
+#upcomingBlogs .recent-blog-item h3 {
+    margin: 0 0 7px;
+    padding-left: 5px;
+    color: #182235;
+    font-size: 14px;
+}
+
+#upcomingBlogs .recent-blog-item p {
+    margin: 5px 0;
+    padding-left: 5px;
+    color: #68758a;
+    font-size: 11px;
+}
+
+@media (max-width: 900px) {
+    .calendar-day {
+        min-height: 108px;
+        padding: 8px;
+    }
+
+    .blog-event {
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 700px) {
+    #calendar {
+        overflow-x: auto;
+    }
+
+    #calendarDays {
+        min-width: 700px;
+    }
+
+    #calendar-header {
+        min-width: 700px;
+    }
+}
+
+@media (max-width: 480px) {
+    #calendar-header h2 {
+        font-size: 20px;
+    }
+}

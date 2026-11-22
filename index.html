@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | SEO Blog Management</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+
+
+<body>
+
+<main class="page-container">
+
+
+    <!-- =========================================
+         PAGE HEADER
+    ========================================= -->
+
+    <div class="page-header">
+
+        <div>
+
+            <h1>
+                SEO Blog Dashboard
+            </h1>
+
+            <p>
+                Overview of your blog content, publishing progress and SEO activities.
+            </p>
+
+        </div>
+
+
+        <div class="blog-header-actions">
+
+            <button
+                type="button"
+                class="secondary-btn"
+                onclick="window.location.href='./calendar.html'">
+
+                📅 Publishing Calendar
+
+            </button>
+
+
+            <button
+                type="button"
+                class="primary-btn"
+                onclick="window.location.href='./writer.html'">
+
+                + Write New Blog
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         SUMMARY CARDS
+    ========================================= -->
+
+    <section class="dashboard-stats">
+
+
+        <div class="dashboard-card">
+
+            <div class="dashboard-card-icon">
+                📝
+            </div>
+
+            <div>
+
+                <p>
+                    Total Blogs
+                </p>
+
+                <h2 id="totalBlogs">
+                    0
+                </h2>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="dashboard-card">
+
+            <div class="dashboard-card-icon">
+                ✅
+            </div>
+
+            <div>
+
+                <p>
+                    Published
+                </p>
+
+                <h2 id="publishedBlogs">
+                    0
+                </h2>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="dashboard-card">
+
+            <div class="dashboard-card-icon">
+                ✍️
+            </div>
+
+            <div>
+
+                <p>
+                    In Progress
+                </p>
+
+                <h2 id="inProgressBlogs">
+                    0
+                </h2>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="dashboard-card">
+
+            <div class="dashboard-card-icon">
+                ⏳
+            </div>
+
+            <div>
+
+                <p>
+                    Pending
+                </p>
+
+                <h2 id="pendingBlogs">
+                    0
+                </h2>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         MAIN DASHBOARD GRID
+    ========================================= -->
+
+    <section class="dashboard-main-grid">
+
+
+        <!-- STATUS CHART -->
+
+        <div class="dashboard-panel">
+
+            <div class="dashboard-panel-header">
+
+                <div>
+
+                    <h2>
+                        Blog Status Overview
+                    </h2>
+
+                    <p>
+                        Current distribution of your blog content.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-chart">
+
+                <canvas id="statusChart"></canvas>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- STATUS BREAKDOWN -->
+
+        <div class="dashboard-panel">
+
+            <div class="dashboard-panel-header">
+
+                <div>
+
+                    <h2>
+                        Status Breakdown
+                    </h2>
+
+                    <p>
+                        Blogs by workflow stage.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="status-list">
+
+                <div class="status-row">
+
+                    <span>
+                        Idea
+                    </span>
+
+                    <strong id="ideaCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="status-row">
+
+                    <span>
+                        In Progress
+                    </span>
+
+                    <strong id="inProgressCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="status-row">
+
+                    <span>
+                        Under Review
+                    </span>
+
+                    <strong id="underReviewCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="status-row">
+
+                    <span>
+                        Scheduled
+                    </span>
+
+                    <strong id="scheduledCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="status-row">
+
+                    <span>
+                        Published
+                    </span>
+
+                    <strong id="publishedCount">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         RECENT BLOGS
+    ========================================= -->
+
+    <section class="dashboard-panel recent-blogs-panel">
+
+        <div class="dashboard-panel-header">
+
+            <div>
+
+                <h2>
+                    Recent Blogs
+                </h2>
+
+                <p>
+                    Your five most recently created blog articles.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="secondary-btn"
+                onclick="window.location.href='./blogs.html'">
+
+                View All Blogs
+
+            </button>
+
+        </div>
+
+
+        <div
+            id="recentBlogsList"
+            class="recent-blogs-list">
+
+            <p>
+                Loading blogs...
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         QUICK ACTIONS
+    ========================================= -->
+
+    <section class="dashboard-panel">
+
+        <div class="dashboard-panel-header">
+
+            <div>
+
+                <h2>
+                    Quick Actions
+                </h2>
+
+                <p>
+                    Quickly access the main areas of the dashboard.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="quick-actions">
+
+
+            <button
+                type="button"
+                class="quick-action"
+                onclick="window.location.href='./writer.html'">
+
+                <span>
+                    ✍️
+                </span>
+
+                <div>
+
+                    <strong>
+                        Write a Blog
+                    </strong>
+
+                    <small>
+                        Create new SEO content
+                    </small>
+
+                </div>
+
+            </button>
+
+
+
+            <button
+                type="button"
+                class="quick-action"
+                onclick="window.location.href='./blogs.html'">
+
+                <span>
+                    📝
+                </span>
+
+                <div>
+
+                    <strong>
+                        Manage Blogs
+                    </strong>
+
+                    <small>
+                        Edit, search or delete blogs
+                    </small>
+
+                </div>
+
+            </button>
+
+
+
+            <button
+                type="button"
+                class="quick-action"
+                onclick="window.location.href='./calendar.html'">
+
+                <span>
+                    📅
+                </span>
+
+                <div>
+
+                    <strong>
+                        Publishing Calendar
+                    </strong>
+
+                    <small>
+                        View upcoming publishing dates
+                    </small>
+
+                </div>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================================
+     SCRIPTS
+========================================= -->
+
+<script src="js/storage.js"></script>
+
+<script src="js/app.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="js/dashboard.js"></script>
+
+
+</body>
+
+</html>
